@@ -39,12 +39,12 @@ SENSORS: dict[str, SensorEntityDescription] = {
     "total_kwh_forecast_today": SensorEntityDescription(
         key="total_kwh_forecast_today",
         translation_key="total_kwh_forecast_today",
-        device_class=SensorDeviceClass.ENERGY,
+        device_class=SensorDeviceClass.ENERGY_STORAGE,
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         name="Forecast Today",
         icon="mdi:solar-power",
         suggested_display_precision=2,
-        #state_class= SensorStateClass.MEASUREMENT,
+        state_class=SensorStateClass.MEASUREMENT,
     ),
     "peak_w_today": SensorEntityDescription(
         key="peak_w_today",
@@ -66,7 +66,7 @@ SENSORS: dict[str, SensorEntityDescription] = {
     ),
     "forecast_this_hour": SensorEntityDescription(
         key="forecast_this_hour",
-        device_class=SensorDeviceClass.ENERGY,
+        device_class=SensorDeviceClass.ENERGY_STORAGE,
         native_unit_of_measurement=UnitOfEnergy.WATT_HOUR,
         translation_key="forecast_this_hour",
         name="Forecast This Hour",
@@ -75,7 +75,7 @@ SENSORS: dict[str, SensorEntityDescription] = {
     ),
     "forecast_remaining_today": SensorEntityDescription(
         key="get_remaining_today",
-        device_class=SensorDeviceClass.ENERGY,
+        device_class=SensorDeviceClass.ENERGY_STORAGE,
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         translation_key="get_remaining_today",
         name="Forecast Remaining Today",
@@ -84,7 +84,7 @@ SENSORS: dict[str, SensorEntityDescription] = {
     ),
     "forecast_next_hour": SensorEntityDescription(
         key="forecast_next_hour",
-        device_class=SensorDeviceClass.ENERGY,
+        device_class=SensorDeviceClass.ENERGY_STORAGE,
         native_unit_of_measurement=UnitOfEnergy.WATT_HOUR,
         translation_key="forecast_next_hour",
         name="Forecast Next Hour",
@@ -93,7 +93,7 @@ SENSORS: dict[str, SensorEntityDescription] = {
     ),
     "forecast_custom_hour": SensorEntityDescription(
         key="forecast_custom_hour",
-        device_class=SensorDeviceClass.ENERGY,
+        device_class=SensorDeviceClass.ENERGY_STORAGE,
         native_unit_of_measurement=UnitOfEnergy.WATT_HOUR,
         translation_key="forecast_custom_hour",
         name="Forecast Custom Hours",
@@ -102,7 +102,7 @@ SENSORS: dict[str, SensorEntityDescription] = {
     ),
     "total_kwh_forecast_tomorrow": SensorEntityDescription(
         key="total_kwh_forecast_tomorrow",
-        device_class=SensorDeviceClass.ENERGY,
+        device_class=SensorDeviceClass.ENERGY_STORAGE,
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         translation_key="total_kwh_forecast_tomorrow",
         name="Forecast Tomorrow",
@@ -157,7 +157,7 @@ SENSORS: dict[str, SensorEntityDescription] = {
     ),
     "total_kwh_forecast_d3": SensorEntityDescription(
         key="total_kwh_forecast_d3",
-        device_class=SensorDeviceClass.ENERGY,
+        device_class=SensorDeviceClass.ENERGY_STORAGE,
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         translation_key="total_kwh_forecast_d3",
         name="Forecast D3",
@@ -166,7 +166,7 @@ SENSORS: dict[str, SensorEntityDescription] = {
     ),
     "total_kwh_forecast_d4": SensorEntityDescription(
         key="total_kwh_forecast_d4",
-        device_class=SensorDeviceClass.ENERGY,
+        device_class=SensorDeviceClass.ENERGY_STORAGE,
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         translation_key="total_kwh_forecast_d4",
         name="Forecast D4",
@@ -175,7 +175,7 @@ SENSORS: dict[str, SensorEntityDescription] = {
     ),
     "total_kwh_forecast_d5": SensorEntityDescription(
         key="total_kwh_forecast_d5",
-        device_class=SensorDeviceClass.ENERGY,
+        device_class=SensorDeviceClass.ENERGY_STORAGE,
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         translation_key="total_kwh_forecast_d5",
         name="Forecast D5",
@@ -184,7 +184,7 @@ SENSORS: dict[str, SensorEntityDescription] = {
     ),
     "total_kwh_forecast_d6": SensorEntityDescription(
         key="total_kwh_forecast_d6",
-        device_class=SensorDeviceClass.ENERGY,
+        device_class=SensorDeviceClass.ENERGY_STORAGE,
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         translation_key="total_kwh_forecast_d6",
         name="Forecast D6",
@@ -193,7 +193,7 @@ SENSORS: dict[str, SensorEntityDescription] = {
     ),
     "total_kwh_forecast_d7": SensorEntityDescription(
         key="total_kwh_forecast_d7",
-        device_class=SensorDeviceClass.ENERGY,
+        device_class=SensorDeviceClass.ENERGY_STORAGE,
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         translation_key="total_kwh_forecast_d7",
         name="Forecast D7",
@@ -252,7 +252,7 @@ async def async_setup_entry(
                 key=site["resource_id"],
                 name=site["name"],
                 icon="mdi:home",
-                device_class=SensorDeviceClass.ENERGY,
+                device_class=SensorDeviceClass.ENERGY_STORAGE,
                 native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
                 suggested_display_precision=2,
                 rooftop_id=site["resource_id"],
